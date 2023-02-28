@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Empresas</title>
+    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/flexbox.css">
+    <link rel="stylesheet" href="_css/form.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/maskinput.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+<form action="index.php?class=CompanyForm&method=save" class="form_capitalize" method="post"
+      enctype="multipart/form-data" novalidate>
+
+    <div class="flex-box">
+        <label class="grow0 basis-110" for="company_id">
+            <span>Código</span>
+            <input type="number" name="company_id" id="company_id" value="{company_id}" readonly>
+        </label>
+
+        <label class="grow1" for="company_cnpj">
+            <span>CNPJ</span>
+            <input type="text" class="formCnpj wc_getCnpj" name="company_cnpj" id="company_cnpj" value="{company_cnpj}" required>
+        </label>
+    </div>
+
+   <div class="flex-box">
+       <label class="grow1" for="company_name">
+           <span>Razão Social</span>
+           <input type="text" name="company_name" id="company_name" value="{company_name}" required>
+       </label>
+       <label class="grow1" for="company_fantasy">
+           <span>Nome Fantasia</span>
+           <input type="text" name="company_fantasy" id="company_fantasy" value="{company_fantasy}">
+       </label>
+   </div>
+
+    <div class="flex-box">
+        <label class="grow1" for="company_cep">
+            <span>CEP</span>
+            <input type="text" name="company_cep" id="company_cep" class="wc_getCep formCep" value="{company_cep}" required>
+        </label>
+
+        <label class="grow2" for="company_address">
+            <span>Endereço</span>
+            <input type="text" name="company_address" id="company_address" value="{company_address}" required>
+        </label>
+
+        <label class="grow1" for="company_number">
+            <span>Número</span>
+            <input type="text" name="company_number" id="company_number" value="{company_number}" required>
+        </label>
+
+        <label class="grow1" for="company_complement">
+            <span>Complemento</span>
+            <input type="text" name="company_complement" id="company_complement" value="{company_complement}">
+        </label>
+    </div>
+
+    <div class="flex-box">
+        <label class="grow1" for="company_district">
+            <span>Bairro/Distrito</span>
+            <input type="text" name="company_district" id="company_district" class="cep_district"
+                   value="{company_district}"
+                   required>
+        </label>
+
+        <label class="grow1" for="company_city">
+            <span>Cidade</span>
+            <input type="text" name="company_city" id="company_city"
+                   value="{company_city}"
+                   required>
+        </label>
+        <label class="grow1" for="company_state">
+            <span>Estado</span>
+            <input type="text" class="uppercase" name="company_state" maxlength="2" id="company_state"
+                   value="{company_state}"
+                   required>
+        </label>
+    </div>
+    <div class="flex-box">
+        <label class="grow1" for="company_phone">
+            <span>Telefone</span>
+            <input type="text" name="company_phone" id="company_phone" class="formPhone" value="{company_phone}" required>
+        </label>
+        <label class="grow1" for="company_mail">
+            <span>E-mail</span>
+            <input type="text" name="company_mail" id="company_mail" class="lowercase" value="{company_mail}" required>
+        </label>
+    </div>
+
+   <div class="flex-box flex-end items-center ">
+
+           <a href="index.php?class=CompanyList" class="btn btn-ligth-gray">
+               <img class="img-icon" src='images/icons8-cancel-50.svg'>
+               VOLTAR</a>
+
+           <button class='btn btn-ligth-gray' type='submit'>
+               <img class="img-icon" src='images/icons8-settings-50.svg'>
+               SALVAR
+           </button>
+
+   </div>
+</form>
+
+</body>
+</html>
