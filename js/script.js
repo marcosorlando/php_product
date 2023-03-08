@@ -1,6 +1,9 @@
 $(function () {
 
-    //############## GET CNPJ + Validando com function validarCNPJ
+    const BASE = window.location.origin + window.location.pathname.substring(0,window.location.pathname.indexOf('index.php'))
+
+
+       //############## GET CNPJ + Validando com function validarCNPJ
     $('.wc_getCnpj').on('blur', function () {
         if (!validarCNPJ(this.value)) {
             Trigger("<div class='trigger trigger_ajax trigger_error' >CNPJ Informado é inválido.</div>")
@@ -74,9 +77,9 @@ $(function () {
 
     /*############## DATEPICKER*/
     if ($('.jwc_datepicker').length) {
-        $("head").append('<link rel="stylesheet" href="' + BASE + '/_cdn/datepicker/datepicker.min.css">');
-        $.getScript(BASE + '/_cdn/datepicker/datepicker.min.js');
-        $.getScript(BASE + '/_cdn/datepicker/datepicker.pt-BR.js', function () {
+        $("head").append('<link rel="stylesheet" href="' + BASE + '/js/datepicker/datepicker.min.css">');
+        $.getScript(BASE + '/js/datepicker/datepicker.min.js');
+        $.getScript(BASE + '/js/datepicker/datepicker.pt-BR.js', function () {
             $('.jwc_datepicker').datepicker({
                 language: 'pt-BR',
                 autoClose: true
@@ -86,7 +89,7 @@ $(function () {
 
     if ($('.trigger-sucess').length) {
         setTimeout(function (){
-            window.location.href= 'index.php?class=CompanyList';
+            window.location.href= 'index.php?class=ProductList';
         }, 2000);
     }
 
@@ -190,7 +193,7 @@ $(document).ready(function () {
     });
 
     //OTIMIZA TITULO (FACEBOOK/GOOGLE - LIMIT)
-    if ($(".title_optimize").length) {
+   /* if ($(".title_optimize").length) {
         let limite = $(".title_optimize").attr('maxlength');
         let caracteresDigitados = $(".title_optimize").val().length;
         let caracteresRestantes = (parseInt(limite) - parseInt(caracteresDigitados));
@@ -207,7 +210,7 @@ $(document).ready(function () {
         }
         $(".caracteres").text(resultChars);
 
-    }
+    }*/
 
 });
 

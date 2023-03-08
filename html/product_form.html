@@ -5,111 +5,205 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Empresas</title>
+    <title>Cadastro de Produtos</title>
     <link rel="stylesheet" href="_css/style.css">
     <link rel="stylesheet" href="_css/flexbox.css">
     <link rel="stylesheet" href="_css/form.css">
+
     <script src="js/jquery.js"></script>
     <script src="js/jquery.form.js"></script>
-    <script src="js/maskinput.js"></script>
-    <script src="js/script.js"></script>
-</head>
+    <script src="js/jquery.mobile.js"></script>
 
+    <script src="js/maskinput.js"></script>
+
+
+</head>
 <body>
 
-<form action="index.php?class=CompanyForm&method=save" class="form_capitalize" method="post"
+<form action="index.php?class=ProductForm&method=save" class="form_capitalize" method="post"
       enctype="multipart/form-data" novalidate>
 
-    <div class="flex-box">
-        <label class="grow0 basis-110" for="company_id">
-            <span>Código</span>
-            <input type="number" name="company_id" id="company_id" value="{company_id}" readonly>
-        </label>
+    <main>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_title">
+                <span>Título do Produto:</span>
+                <input type="text" name="pdt_title" id="pdt_title" value="{pdt_title}" required>
+            </label>
+        </div>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_subtitle">
+                <span>Subtítulo do Produto:</span>
+                <textarea name="pdt_subtitle" id="pdt_subtitle" rows="10" required>{pdt_subtitle}</textarea>
+            </label>
+        </div>
 
-        <label class="grow1" for="company_cnpj">
-            <span>CNPJ</span>
-            <input type="text" class="formCnpj wc_getCnpj" name="company_cnpj" id="company_cnpj" value="{company_cnpj}" required>
-        </label>
-    </div>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_tags">
+                <span>TAGS:</span>
+                <input type="text" name="pdt_tags" id="pdt_tags" value="{pdt_tags}">
+            </label>
+        </div>
 
-   <div class="flex-box">
-       <label class="grow1" for="company_name">
-           <span>Razão Social</span>
-           <input type="text" name="company_name" id="company_name" value="{company_name}" required>
-       </label>
-       <label class="grow1" for="company_fantasy">
-           <span>Nome Fantasia</span>
-           <input type="text" name="company_fantasy" id="company_fantasy" value="{company_fantasy}">
-       </label>
-   </div>
 
-    <div class="flex-box">
-        <label class="grow1" for="company_cep">
-            <span>CEP</span>
-            <input type="text" name="company_cep" id="company_cep" class="wc_getCep formCep" value="{company_cep}" required>
-        </label>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_url">
+                <span>Link Alternativo (opcional):</span>
+                <input type="text" name="pdt_url" id="pdt_url" value="{pdt_url}">
+            </label>
+        </div>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_code">
+                <span>Código:</span>
+                <input type="text" name="pdt_code" id="pdt_code" value="{pdt_code}">
+            </label>
+            <label for="pdt_unit" class="grow1">
+                <span>Unidade de Venda:</span>
+                <select name="pdt_unit" id="pdt_unit" required>
+                    {pdt_unit}
+                </select>
+            </label>
+            <label for="pdt_brand" class="grow1">
+                <span>Marca/Fabricante:</span>
+                <select name="pdt_brand" id="pdt_brand" required>
+                    {pdt_brand}
+                </select>
+            </label>
+        </div>
 
-        <label class="grow2" for="company_address">
-            <span>Endereço</span>
-            <input type="text" name="company_address" id="company_address" value="{company_address}" required>
-        </label>
+        <div class="flex-box">
+            <label for="pdt_category" class="grow1">
+                <span>Categoria do Produto:</span>
+                <select name="pdt_category" id="pdt_category" required>
+                    {pdt_category}
+                </select>
+            </label>
+        </div>
 
-        <label class="grow1" for="company_number">
-            <span>Número</span>
-            <input type="text" name="company_number" id="company_number" value="{company_number}" required>
-        </label>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_description">
+                <span>Subtítulo do Produto:</span>
+                <textarea name="pdt_description" id="pdt_description" rows="40" required>{pdt_description}</textarea>
+            </label>
+        </div>
+        <div class="flex-box">
+            <label class="grow1" for="pdt_height">
+                <span>Altura (cm):</span>
+                <input type="number" step="1" min="1" max="100" name="pdt_height" id="pdt_height" value="{pdt_height}"
+                       required>
+            </label>
+            <label class="grow1" for="pdt_width">
+                <span>Largura (cm):</span>
+                <input type="number" step="1" min="1" max="100" name="pdt_width" id="pdt_width" value="{pdt_width}"
+                       required>
+            </label>
+            <label class="grow1" for="pdt_depth">
+                <span>Profundidade (cm):</span>
+                <input type="number" step="1" min="1" max="100" name="pdt_depth" id="pdt_depth"
+                       value="{pdt_depth}"
+                       required>
+            </label>
+            <label class="grow1" for="pdt_weight">
+                <span>Peso (kg):</span>
+                <input type="number" step="0.1" min="0.01" max="100" name="pdt_weight" id="pdt_weight"
+                       value="{pdt_weight}"
+                       required>
+            </label>
+        </div>
+    </main>
 
-        <label class="grow1" for="company_complement">
-            <span>Complemento</span>
-            <input type="text" name="company_complement" id="company_complement" value="{company_complement}">
-        </label>
-    </div>
+    <aside>
+        <div class="panel-header default">
+            <div class="flex-box">
+                <label class="grow1" for="pdt_cover">
+                    <span>Foto (.jpg 1080x1080px):</span>
+                    <input type="file" name="pdt_cover" id="pdt_cover">
+                </label>
+            </div>
+            <div>
+                <img style="width: 300px" height="300px" src="{pdt_cover}" alt="">
+            </div>
+        </div>
+        <div class="panel-header default">
+            <header><h2 class="">Formação de Preço</h2></header>
+            <div class="flex-box">
+                <label class="grow1" for="pdt_cost_price">
+                    <span>Preço de Custo:</span>
+                    <input type="text" class="formMoney" name="pdt_cost_price" id="pdt_cost_price"
+                           value="{pdt_cost_price} required">
+                </label>
+                <label class="grow1" for="pdt_profit_margin">
+                    <span>Margem de Lucro:</span>
+                    <input type="number" min="1" step="0.01" name="pdt_profit_margin" id="pdt_profit_margin"
+                           value="{pdt_profit_margin}">
+                </label>
+            </div>
+        </div>
 
-    <div class="flex-box">
-        <label class="grow1" for="company_district">
-            <span>Bairro/Distrito</span>
-            <input type="text" name="company_district" id="company_district" class="cep_district"
-                   value="{company_district}"
-                   required>
-        </label>
+        <div class="panel-header default">
+            <header><h2 class="">Preço de Venda:</h2></header>
+            <div class="flex-box">
+                <label class="grow1" for="pdt_price">
+                    <span>Preço de Cheio - R$:</span>
+                    <input type="text" class="formMoney" name="pdt_price" id="pdt_price" value="{pdt_price} required">
+                </label>
+            </div>
+        </div>
 
-        <label class="grow1" for="company_city">
-            <span>Cidade</span>
-            <input type="text" name="company_city" id="company_city"
-                   value="{company_city}"
-                   required>
-        </label>
-        <label class="grow1" for="company_state">
-            <span>Estado</span>
-            <input type="text" class="uppercase" name="company_state" maxlength="2" id="company_state"
-                   value="{company_state}"
-                   required>
-        </label>
-    </div>
-    <div class="flex-box">
-        <label class="grow1" for="company_phone">
-            <span>Telefone</span>
-            <input type="text" name="company_phone" id="company_phone" class="formPhone" value="{company_phone}" required>
-        </label>
-        <label class="grow1" for="company_mail">
-            <span>E-mail</span>
-            <input type="text" name="company_mail" id="company_mail" class="lowercase" value="{company_mail}" required>
-        </label>
-    </div>
+        <div class="panel-header default">
+            <header><h2 class="">Configurar Promoção</h2></header>
+            <div class="flex-box">
+                <label class="grow1" for="pdt_offer_percent">
+                    <span>Porcentagem de Desconto (%):</span>
+                    <input type="number" step="0.01" name="pdt_offer_percent" id="pdt_offer_percent"
+                           value="{pdt_offer_percent} required">
+                </label>
 
-   <div class="flex-box flex-end items-center ">
+                <label class="grow1" for="pdt_offer_price">
+                    <span>Preço Promocional - R$:</span>
+                    <input type="text" class="formMoney" min="1" step="0.01" name="pdt_offer_price" id="pdt_offer_price"
+                           value="{pdt_offer_price}">
+                </label>
 
-           <a href="index.php?class=CompanyList" class="btn btn-ligth-gray">
-               <img class="img-icon" src='images/icons8-cancel-50.svg'>
-               VOLTAR</a>
+                <label class="grow1" for="pdt_offer_start">
+                    <span>Início da Promoção:</span>
+                    <input type="text" class="jwc_datepicker formTime" data-timepicker="true" name="pdt_offer_start"
+                           id="pdt_offer_start"
+                           value="{pdt_offer_start}">
+                </label>
+                <label class="grow1" for="pdt_offer_end">
+                    <span>Fim da Promoção:</span>
+                    <input type="text" class="jwc_datepicker formTime" data-timepicker="true" name="pdt_offer_end"
+                           id="pdt_offer_end"
+                           value="{pdt_offer_end}">
+                </label>
 
-           <button class='btn btn-ligth-gray' type='submit'>
-               <img class="img-icon" src='images/icons8-settings-50.svg'>
-               SALVAR
-           </button>
+            </div>
+            <div class="flex-box">
+                <label for="pdt_stock">
+                <span>Estoque:</span>
+                    <input type="number" min="0" name="pdt_stock" id="pdt_stock">
+                </label>
 
-   </div>
+                <label for="pdt_status">
+                    <span>Status Publicado:</span>
+                    <input type="checkbox" value="1" name="pdt_status" id="pdt_status">
+                </label>
+            </div>
+        </div>
+
+        <div class="flex-box flex-end items-center">
+            <a href="index.php?class=CompanyList" class="btn btn-ligth-gray">
+                <img class="img-icon" src='images/icons8-cancel-50.svg'>
+                VOLTAR</a>
+
+            <button class='btn btn-ligth-gray' type='submit'>
+                <img class="img-icon" src='images/icons8-settings-50.svg'>
+                SALVAR
+            </button>
+        </div>
+    </aside>
+
 </form>
-
+<script src="js/script.js"></script>
 </body>
 </html>

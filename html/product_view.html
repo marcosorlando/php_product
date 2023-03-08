@@ -1,15 +1,14 @@
 <article class="company-box">
-    <h2>{company_name}</h2>
-    <h3>CNPJ: {company_cnpj}</h3>
-    <p>{company_city} - {company_state}</p>
-    <p><b>Telefone:</b> {company_phone}</p>
-    <p><b>E-mail:</b> {company_mail}</p>
+    <h2>{pdt_title}</h2>
+    <h3>{pdt_category}</h3>
+    <p><b>Código:</b> {pdt_code}</p>
+    <p><b>Preço R$</b> {pdt_price}</p>
 
     <footer class='flex-box center'>
-        <a class="btn btn-ligth-gray btn-icon" href='index.php?class=CompanyForm&method=edit&id={company_id}'>
+        <a class="btn btn-ligth-gray btn-icon" href='index.php?class=ProductForm&method=edit&id={pdt_id}'>
             <img class="img-icon" src='images/icons8-edit-50.svg'>
         </a>
-        <a class="btn btn-ligth-gray btn-icon" href='index.php?class=CompanyList&method=delete&id={company_id}'>
+        <a class="btn btn-ligth-gray btn-icon" href='index.php?class=ProductList&method=delete&id={pdt_id}'>
             <img class="img-icon" src='images/icons8-trash-can-50.svg'>
         </a>
     </footer>

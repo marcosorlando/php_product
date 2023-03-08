@@ -8,6 +8,7 @@
     
     $classe = $_REQUEST['class'];
     $method = isset($_REQUEST['method']) ? $_REQUEST['method'] : null;
+    unset($_REQUEST['class'],$_REQUEST['method']);
     
     if (class_exists($classe)) {
         $pagina = new $classe($_REQUEST);
@@ -16,5 +17,5 @@
         }
         $pagina->show();
     }else{
-        header("Location: https://localhost/php_company/index.php?class=CompanyList");
+        header("Location: https://localhost/php_product/index.php?class=ProductList");
     }

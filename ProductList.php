@@ -1,21 +1,21 @@
 <?php
     
-    require_once __DIR__ . '/classes/Company.php';
+    require_once __DIR__ . '/classes/Product.php';
     
-    class CompanyList
+    class ProductList
     {
         private $html;
         
         public function __construct()
         {
-            $this->html = file_get_contents('html/list.html');
+            $this->html = file_get_contents('html/product_list.html');
         }
         
         public function delete($param)
         {
             try {
                 $id = (int)$param['id'];
-                Company::delete($id);
+                Product::delete($id);
             } catch (Exception $e) {
                 print $e->getMessage();
             }
@@ -25,34 +25,67 @@
         {
             try {
                 $companies = '';
-                foreach (Company::all() as $co) {
-                    $company = file_get_contents('html/company.html');
-                    $company = str_replace(
+                foreach (Product::all() as $pdt) {
+                    $product = file_get_contents('html/product_view.html');
+                    $product = str_replace(
                         [
-                            '{company_id}',
-                            '{company_cnpj}',
-                            '{company_name}',
-                            '{company_city}',
-                            '{company_state}',
-                            '{company_phone}',
-                            '{company_mail}'
+                            '{pdt_id}',
+                            '{pdt_title}',
+                            '{pdt_subtitle}',
+                            '{pdt_tags}',
+                            '{pdt_url}',
+                            '{pdt_code}',
+                            '{pdt_un}',
+                            '{pdt_brand}',
+                            '{pdt_category}',
+                            '{pdt_description}',
+                            '{pdt_height}',
+                            '{pdt_width}',
+                            '{pdt_depth}',
+                            '{pdt_weight}',
+                            '{pdt_stock}',
+                            '{pdt_cost_price}',
+                            '{pdt_offer_price}',
+                            '{pdt_offer_percent}',
+                            '{pdt_price}',
+                            '{pdt_profit_margin}',
+                            '{pdt_offer_start}',
+                            '{pdt_offer_end}',
+                            '{pdt_status}'
                         ],
                         [
-                            $co['company_id'],
-                            $co['company_cnpj'],
-                            ($co['company_fantasy']?:$co['company_name']),
-                            $co['company_city'],
-                            $co['company_state'],
-                            $co['company_phone'],
-                            $co['company_mail']
+                                                      
+                    $pdt['pdt_id'],
+                    $pdt['pdt_title'],
+                    $pdt['pdt_subtitle'],
+                    $pdt['pdt_tags'],
+                    $pdt['pdt_url'],
+                    $pdt['pdt_code'],
+                    $pdt['pdt_un'],
+                    $pdt['pdt_brand'],
+                    $pdt['pdt_category'],
+                    $pdt['pdt_description'],
+                    $pdt['pdt_height'],
+                    $pdt['pdt_width'],
+                    $pdt['pdt_depth'],
+                    $pdt['pdt_weight'],
+                    $pdt['pdt_stock'],
+                    $pdt['pdt_cost_price'],
+                    $pdt['pdt_offer_price'],
+                    $pdt['pdt_offer_percent'],
+                    $pdt['pdt_price'],
+                    $pdt['pdt_profit_margin'],
+                    $pdt['pdt_offer_start'],
+                    $pdt['pdt_offer_end'],
+                    $pdt['pdt_status']
                         ],
-                        $company
+                        $product
                     );
                     
-                    $companies .= $company;
+                    $products .= $product;
                 }
                 $this->html = str_replace(
-                    '{companies}',
+                    '{products}',
                     $companies,
                     $this->html
                 );
